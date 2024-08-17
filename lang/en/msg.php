@@ -20,6 +20,7 @@ return[
         'disaster' => 'Disaster',
     ],
 
+
     'breakingNewsT' =>'Breaking News..',
     'featuredNewsT' => 'Featured News',
     'latestNewsT' => 'Latest News',

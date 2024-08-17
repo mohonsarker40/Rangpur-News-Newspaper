@@ -18,6 +18,7 @@ Route::prefix('/')->group(function () {
     Route::resource('/visitor_login', \App\Http\Controllers\VisitorLoginController::class);
     Route::post('/visitor_do_login', [\App\Http\Controllers\VisitorLoginController::class, 'visitor_do_login'])->name('visitor_do_login');
     Route::get('/change', [\App\Http\Controllers\Frontend\localization::class, 'change'])->name('changeLang');
+    Route::get('/admin_comment', [\App\Http\Controllers\Frontend\CommentController::class, 'commentList'])->name('admin_comment');
 });
 
 
