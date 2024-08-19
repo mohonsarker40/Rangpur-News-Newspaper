@@ -59,7 +59,7 @@ class CommentController extends Controller
                 return retData(null, 'Successfully deleted');
             }
 
-        }catch (\Exception $exception){
+        }catch (Exception $exception){
             return retData($exception->getMessage(), 'Something Wrong', 5000);
         }
     }
