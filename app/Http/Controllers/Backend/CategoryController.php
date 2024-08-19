@@ -22,10 +22,57 @@ class CategoryController extends Controller
             $data = Category::get();
             return response()->json(['result' => $data, 'status' => 2000]);
         } catch (Exception $e) {
-            return response()->json(['result' => null, 'message'=>$e->getMessage(), 'status' => 3000]);
+            return response()->json(['result' => null, 'message' => $e->getMessage(), 'status' => 3000]);
         }
     }
 
+    public function categoriesUpdateData(Request $request)
+    {
+        try {
+            $id = $request->input('id');
+
+            $category = Category::where('id', $id)->first();
+
+            if ($category) {
+                $category->category_name = $request->input('category_name');
+                $category->details = $request->input('details');
+                $category->update();
+
+                return response()->json(['status' => 2000]);
+            }
+
+            return response()->json(['status' => 3000]);
+        } catch (\Exception $e) {
+            return response()->json(['result' => null, 'message' => $e->getMessage(), 'status' => 5000]);
+        }
+    }
+
+    public function categoriesStoreData(Request $request)
+    {
+        try {
+            $category = new Category();
+            $category->category_name = $request->input('category_name');
+            $category->details = $request->input('details');
+            $category->save();
+
+            return response()->json(['status' => 2000]);
+        } catch (\Exception $e) {
+            return response()->json(['result' => null, 'message' => $e->getMessage(), 'status' => 5000]);
+        }
+    }
+
+    public function catDelete($id) {
+        try{
+            $category = Category::where('id', $id)->first();
+
+            if ($category) {
+                $category->delete();
+                return response()->json(['status' => 2000]);
+            }
+        } catch (\Exception $e) {
+                return response()->json(['result' => null, 'message' => $e->getMessage(), 'status' => 5000]);
+            }
+    }
 
     public function create()
     {

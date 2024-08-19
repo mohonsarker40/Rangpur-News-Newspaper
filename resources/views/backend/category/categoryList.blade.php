@@ -1,12 +1,12 @@
 @extends('backend.layouts.master')
 @section('dashboard_content')
-    <div class="container-fluid">
+    <div class="container-fluid" id="categoryBlock">
         <div class="row">
             <div class="col-md-6 text-left">
-                <h1 class="h5 mb-2 text-gray-800">News List</h1>
+                <h1 class="h5 mb-2 text-gray-800">Category List</h1>
             </div>
             <div class="col-md-6 text-right mb-2">
-                <a href="{{route('category.create')}}" class="btn btn-primary">Add Category</a>
+                <button @click="openModal(null)" class="btn btn-primary">Add Category</button>
             </div>
         </div>
         <div class="card shadow mb-4">
@@ -15,7 +15,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="categoryBlock" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
                             <th>SL</th>
@@ -27,65 +27,70 @@
                         <tbody>
 
 
-{{--                        @foreach($categories as $key => $value)--}}
-                            <tr v-for="(data, index) in dataList">
-                                <th>@{{index+1}}</th>
-                                <th>@{{data.category_name}}</th>
-                                <th>@{{data.details}}</th>
-                                <th>
+                        {{--                        @foreach($categories as $key => $value)--}}
+                        <tr v-for="(data, index) in dataList">
+                            <th>@{{index+1}}</th>
+                            <th>@{{data.category_name}}</th>
+                            <th>@{{data.details}}</th>
+                            <th>
 
-{{--                                    <a :href="'{{ url('/') }}/admin/category/' + data.id + '/edit'" class="btn btn-primary me-3">edit</a>--}}
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                        Edit
-                                    </button>
+                                {{--                                    <a :href="'{{ url('/') }}/admin/category/' + data.id + '/edit'" class="btn btn-primary me-3">edit</a>--}}
+                                <button type="button" class="btn btn-primary" @click="openModal(data)">
+                                    Edit
+                                </button>
 
-                                    <!-- The Modal -->
-                                    <div class="modal" id="myModal">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
+                                <!-- The Modal -->
+                                <div class="modal" id="myModal">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
 
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Modal Heading</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-
-                                                <!-- Modal body -->
-                                                <div class="modal-body">
-                                                    <form @submit.prevent="submitForm">
-                                                        <div class="form-group">
-                                                            <label>Category name</label>
-                                                            <input v-model="formData.category_name" type="name" class="form-control">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Details</label>
-                                                            <textarea v-model="formData.details" class="form-control"></textarea>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <button type="submit" class="btn btn-success">Submit</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-
-                                                <!-- Modal footer -->
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                </div>
-
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Modal Heading</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;
+                                                </button>
                                             </div>
+
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <form @submit.prevent="submitForm">
+                                                    <div class="form-group">
+                                                        <label>Category name</label>
+                                                        <input v-model="formData.category_name" type="name"
+                                                               class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Details</label>
+                                                        <textarea v-model="formData.details"
+                                                                  class="form-control"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"
+                                                        @click="showHideModal('myModal', 'hide')">Close
+                                                </button>
+                                            </div>
+
                                         </div>
                                     </div>
+                                </div>
 
 
-                                    <button @click="catDelete(data.id)" class="btn btn-danger">Delete</button>
+                                <button @click="catDelete(data.id)" class="btn btn-danger">Delete</button>
 
-{{--                                    <form action="{{ route('category.destroy', $value->id) }}" method="POST" style="display:inline;">--}}
-{{--                                        @csrf--}}
-{{--                                        @method('DELETE')--}}
-{{--                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>--}}
-{{--                                    </form>--}}
-                                </th>
-                            </tr>
+                                {{--                                    <form action="{{ route('category.destroy', $value->id) }}" method="POST" style="display:inline;">--}}
+                                {{--                                        @csrf--}}
+                                {{--                                        @method('DELETE')--}}
+                                {{--                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>--}}
+                                {{--                                    </form>--}}
+                            </th>
+                        </tr>
 
                         </tbody>
                     </table>
@@ -111,25 +116,21 @@
 
             },
 
-            props : {
+            props: {},
 
-            },
-
-            watch: {
-
-            },
+            watch: {},
 
             mounted() {
                 this.getDataList();
                 console.log(baseUrl);
             },
 
-            created(){
+            created() {
 
             },
 
             methods: {
-                getDataList(){
+                getDataList() {
                     const _this = this;
                     axios.get(`${baseUrl}/api/categories_data`)
                         .then(function (response) {
@@ -140,12 +141,48 @@
                             console.error('Error fetching comments data:', error);
                         });
                 },
-                catDelete() {
-                    //
+                catDelete(catID) {
+                    const _this = this;
+                    axios.post(`${baseUrl}/api/categories_data/`+catID)
+                        .then(function (response) {
+                            _this.getDataList();
+                        })
+                        .catch(function (error) {
+                            console.error('Error deleting comment:', error);
+                        });
                 },
-                submitForm(){
-                    console.log(this.formData);
-                }
+                submitForm() {
+                    const _this = this;
+                    if (_this.formData.id) {
+                        axios.put(`${baseUrl}/api/categories_data/`, _this.formData)
+                            .then(function (response) {
+                                _this.getDataList();
+                                _this.showHideModal('myModal', 'hide');
+                            })
+                            .catch(function (error) {
+                                console.error('Error deleting comment:', error);
+                            });
+                    } else {
+                        axios.post(`${baseUrl}/api/categories_data/`, _this.formData)
+                            .then(function (response) {
+                                _this.getDataList();
+                                _this.showHideModal('myModal', 'hide');
+                            })
+                            .catch(function (error) {
+                                console.error('Error deleting comment:', error);
+                            });
+                    }
+
+                },
+                openModal(category) {
+                    this.showHideModal('myModal', 'show')
+                    if (category) this.formData = Object.assign({}, category);
+
+                },
+                showHideModal(id, status) {
+                    $('#' + id).modal(status);
+                    this.formData = {};
+                },
 
             }
 
