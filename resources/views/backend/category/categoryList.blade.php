@@ -28,13 +28,13 @@
 
 
 {{--                        @foreach($categories as $key => $value)--}}
-                            <tr v-for="data in dataList">
-                                <th>{{0}}</th>
+                            <tr v-for="(data, index) in dataList">
+                                <th>@{{index+1}}</th>
                                 <th>@{{data.category_name}}</th>
                                 <th>@{{data.details}}</th>
                                 <th>
-{{--                                    <a href="{{ route('category.edit', $value->id) }}"--}}
-{{--                                       class="btn btn-primary me-3">edit</a>--}}
+                                    <a href="{{ route('category.edit', $value->id) }}"
+                                       class="btn btn-primary me-3">edit</a>
 
 {{--                                    <form action="{{ route('category.destroy', $value->id) }}" method="POST" style="display:inline;">--}}
 {{--                                        @csrf--}}
