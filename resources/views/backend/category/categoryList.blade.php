@@ -33,8 +33,51 @@
                                 <th>@{{data.category_name}}</th>
                                 <th>@{{data.details}}</th>
                                 <th>
-                                    <a href="{{ route('category.edit', $value->id) }}"
-                                       class="btn btn-primary me-3">edit</a>
+
+{{--                                    <a :href="'{{ url('/') }}/admin/category/' + data.id + '/edit'" class="btn btn-primary me-3">edit</a>--}}
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                        Edit
+                                    </button>
+
+                                    <!-- The Modal -->
+                                    <div class="modal" id="myModal">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Modal Heading</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <form @submit.prevent="submitForm">
+                                                        <div class="form-group">
+                                                            <label>Category name</label>
+                                                            <input v-model="formData.category_name" type="name" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Details</label>
+                                                            <textarea v-model="formData.details" class="form-control"></textarea>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-success">Submit</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <button @click="catDelete(data.id)" class="btn btn-danger">Delete</button>
 
 {{--                                    <form action="{{ route('category.destroy', $value->id) }}" method="POST" style="display:inline;">--}}
 {{--                                        @csrf--}}
@@ -64,6 +107,7 @@
             data: {
                 message: 'Hello Vue!',
                 dataList: {},
+                formData: {},
 
             },
 
@@ -76,7 +120,8 @@
             },
 
             mounted() {
-                this.getDataList()
+                this.getDataList();
+                console.log(baseUrl);
             },
 
             created(){
@@ -95,6 +140,13 @@
                             console.error('Error fetching comments data:', error);
                         });
                 },
+                catDelete() {
+                    //
+                },
+                submitForm(){
+                    console.log(this.formData);
+                }
+
             }
 
         })
