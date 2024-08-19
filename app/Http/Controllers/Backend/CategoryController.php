@@ -6,13 +6,24 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Mockery\Exception;
+use function Spatie\FlareClient\message;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $data['categories'] = Category::get();
-        return view('backend.category.categoryList', $data);
+        return view('backend.category.categoryList');
+    }
+
+    public function categoriesGetData()
+    {
+        try {
+            $data = Category::get();
+            return response()->json(['result' => $data, 'status' => 2000]);
+        } catch (Exception $e) {
+            return response()->json(['result' => null, 'message'=>$e->getMessage(), 'status' => 3000]);
+        }
     }
 
 

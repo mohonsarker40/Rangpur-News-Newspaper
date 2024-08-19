@@ -61,7 +61,7 @@
             el: '#viewBlock',
             data: {
                 message: 'Hello Vue!',
-                datList: {},
+                dataList: {},
 
             },
 
@@ -89,7 +89,7 @@
                     axios.get(`${baseUrl}/api/comments_data`)
                         .then(function (response) {
                             console.log(response.data.result); // Log the data structure
-                            _this.datList = response.data.result;
+                            _this.dataList = response.data.result;
                         })
                         .catch(function (error) {
                             console.error('Error fetching comments data:', error);
