@@ -16,7 +16,7 @@ use \App\Http\Controllers\Frontend\CommentController;
 */
 
 Route::get('comments_data',[CommentController::class,'getComments']);
-Route::post('comments_data/delete',[CommentController::class,'commentDelete']);
+Route::post('comments_data/delete/{id}',[CommentController::class,'commentDelete']);
 Route::get('categories_data',[\App\Http\Controllers\Backend\CategoryController::class,'categoriesGetData']);
 Route::put('categories_data',[\App\Http\Controllers\Backend\CategoryController::class,'categoriesUpdateData']);
 Route::post('categories_data',[\App\Http\Controllers\Backend\CategoryController::class,'categoriesStoreData']);

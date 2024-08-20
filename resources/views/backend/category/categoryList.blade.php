@@ -34,7 +34,6 @@
                             <th>@{{data.details}}</th>
                             <th>
 
-                                {{--                                    <a :href="'{{ url('/') }}/admin/category/' + data.id + '/edit'" class="btn btn-primary me-3">edit</a>--}}
                                 <button type="button" class="btn btn-primary" @click="openModal(data)">
                                     Edit
                                 </button>
@@ -84,11 +83,6 @@
 
                                 <button @click="catDelete(data.id)" class="btn btn-danger">Delete</button>
 
-                                {{--                                    <form action="{{ route('category.destroy', $value->id) }}" method="POST" style="display:inline;">--}}
-                                {{--                                        @csrf--}}
-                                {{--                                        @method('DELETE')--}}
-                                {{--                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>--}}
-                                {{--                                    </form>--}}
                             </th>
                         </tr>
 
@@ -123,6 +117,7 @@
             mounted() {
                 this.getDataList();
                 console.log(baseUrl);
+
             },
 
             created() {

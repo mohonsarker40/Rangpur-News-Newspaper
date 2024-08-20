@@ -331,6 +331,7 @@
                 success: function (res) {
                     if (parseInt(res.status) === 2000) {
                         $('#showMessage').text(res.message);
+                        $('#message').val('');
                     } else {
                         alert(res.message);
                     }

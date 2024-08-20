@@ -31,16 +31,15 @@
                         </thead>
                         <tbody>
 
-                        <tr v-for="(data, index) in datList" :key="index">
-                            <th>@{{ index+1 }}</th>
-{{--                            <th>@{{ data.visitor?.name || 'authorized user' }}</th>--}}
-                            <th>@{{ data.visitor.name}}</th>
+                        <tr v-for="(data, index) in dataList" :key="index">
+                            <th>@{{ index + 1 }}</th>
+                            <th>@{{ data.visitor ?.name || 'authorized user' }}</th>
                             <th v-text="data.comment"></th>
                             <th>
-                                <a @click="deleteComment(data)" class="btn btn-danger">Delete</a>
-{{--                                <a onclick="return confirm(deleteComment(data))" class="btn btn-danger">Delete</a>--}}
+                                <button @click="commentDelete(data)" class="btn btn-danger">Delete</button>
                             </th>
                         </tr>
+
 
                         </tbody>
                     </table>
@@ -63,11 +62,10 @@
                 message: 'Hello Vue!',
                 dataList: {},
 
-            },
-
-            props : {
 
             },
+
+            props: {},
 
             watch: {
                 'formData.name': function (olVal, newVal) {
@@ -76,15 +74,15 @@
             },
 
             mounted() {
-               this.getDataList()
+                this.getDataList()
             },
 
-            created(){
+            created() {
 
             },
 
             methods: {
-                getDataList(){
+                getDataList() {
                     const _this = this;
                     axios.get(`${baseUrl}/api/comments_data`)
                         .then(function (response) {
@@ -96,15 +94,14 @@
                         });
                 },
 
-                deleteComment: function(data) {
+                commentDelete: function (data) {
                     const _this = this;
-                    axios.post(`${baseUrl}/api/comments_data/delete/`, { id: data.id })
+                    axios.post(`${baseUrl}/api/comments_data/delete/`+data.id)
                         .then(function (response) {
                             _this.getDataList()
 
-
                         })
-                        .catch(function(error) {
+                        .catch(function (error) {
                             console.error('Error deleting comment:', error);
                         });
                 }

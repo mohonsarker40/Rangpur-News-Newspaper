@@ -48,19 +48,17 @@ class CommentController extends Controller
 
     }
 
-    public function commentDelete()
+    public function commentDelete($id)
     {
-        try{
-            $id = \request()->input('id');
-
+        try {
             $comment = Comment::where('id', $id)->first();
-            if($comment){
+            if ($comment) {
                 $comment->delete();
-                return retData(null, 'Successfully deleted');
+                return response()->json(['status' => 2000]);
             }
 
-        }catch (Exception $exception){
-            return retData($exception->getMessage(), 'Something Wrong', 5000);
+        } catch (\Exception $e) {
+            return response()->json(['result' => null, 'message' => $e->getMessage(), 'status' => 5000]);
         }
     }
 
