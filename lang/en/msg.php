@@ -18,6 +18,7 @@ return[
         'international' => 'International',
         'country' => 'Country',
         'disaster' => 'Disaster',
+        'corruption' => 'corruption'
     ],
 
 

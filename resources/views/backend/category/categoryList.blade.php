@@ -9,10 +9,9 @@
                 <button @click="openModal(null)" class="btn btn-primary">Add Category</button>
             </div>
         </div>
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
 
-            </div>
+{{--        catrgory list--}}
+        <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -24,9 +23,9 @@
                             <th>Action</th>
                         </tr>
                         </thead>
+
+
                         <tbody>
-
-
                         {{--                        @foreach($categories as $key => $value)--}}
                         <tr v-for="(data, index) in dataList">
                             <th>@{{index+1}}</th>
@@ -45,7 +44,7 @@
 
                                             <!-- Modal Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Modal Heading</h4>
+                                                <h4 class="modal-title">Create Category</h4>
                                                 <button type="button" class="close" data-dismiss="modal">&times;
                                                 </button>
                                             </div>
@@ -120,9 +119,7 @@
 
             },
 
-            created() {
-
-            },
+            created() {},
 
             methods: {
                 getDataList() {
