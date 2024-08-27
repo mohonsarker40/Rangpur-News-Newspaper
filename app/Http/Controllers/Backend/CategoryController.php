@@ -133,7 +133,8 @@ class CategoryController extends Controller
 
         Session::flash('error', 'Data not found');
 
-        return redirect()->back();
+//        return redirect()->back();
+        return redirect()->route('category.edit', $id)->with('success', 'Category has been updated successfully!');
     }
 
 
@@ -151,6 +152,7 @@ class CategoryController extends Controller
 
         Session::flash('success', 'Data not found');
 
-        return redirect()->back();
+//        return redirect()->back();
+        return redirect()->route('category.index')->with('success', 'Category has been deleted successfully!');
     }
 }

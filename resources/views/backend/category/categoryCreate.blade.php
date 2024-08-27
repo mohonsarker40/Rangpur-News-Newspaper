@@ -9,6 +9,8 @@
                 <a href="{{route('category.index')}}" class="btn btn-primary">Category List</a>
             </div>
         </div>
+
+
         <div class="card shadow mb-4">
             <div class="card-header py-3">
 
@@ -38,6 +40,5 @@
                 </form>
             </div>
         </div>
-
     </div>
 @endsection

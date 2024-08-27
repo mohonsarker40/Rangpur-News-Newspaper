@@ -1,7 +1,7 @@
-
 @extends('backend.layouts.master')
 @section('dashboard_content')
     <div class="container-fluid">
+
         <div class="row">
             <div class="col-md-6 text-left">
                 <h1 class="h5 mb-2 text-gray-800">Category Edit</h1>
@@ -10,6 +10,8 @@
                 <a href="{{route('category.index')}}" class="btn btn-primary">Category List</a>
             </div>
         </div>
+
+
         <div class="card shadow mb-4">
             <div class="card-header py-3">
 

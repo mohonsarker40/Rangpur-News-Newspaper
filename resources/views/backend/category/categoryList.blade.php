@@ -97,7 +97,7 @@
 @section('script')
     <script src="{{asset('backend/js/vue/vue.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script>
         var app = new Vue({
@@ -137,6 +137,7 @@
                     const _this = this;
                     axios.post(`${baseUrl}/api/categories_data/`+catID)
                         .then(function (response) {
+                            toastr.error("Delete successfully");
                             _this.getDataList();
                         })
                         .catch(function (error) {
@@ -149,19 +150,23 @@
                         axios.put(`${baseUrl}/api/categories_data/`, _this.formData)
                             .then(function (response) {
                                 _this.getDataList();
+                                toastr.success("Update successfully");
                                 _this.showHideModal('myModal', 'hide');
                             })
                             .catch(function (error) {
                                 console.error('Error deleting comment:', error);
+                                toastr.error("Error");
                             });
                     } else {
                         axios.post(`${baseUrl}/api/categories_data/`, _this.formData)
                             .then(function (response) {
                                 _this.getDataList();
+                                toastr.success("Create successfully");
                                 _this.showHideModal('myModal', 'hide');
                             })
                             .catch(function (error) {
                                 console.error('Error deleting comment:', error);
+                                toastr.error("Error");
                             });
                     }
 
