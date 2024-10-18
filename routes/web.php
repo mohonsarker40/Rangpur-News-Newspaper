@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
 
 
-
+Route::get('welcome', function() {
+    return view('welcome');
+});
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'doLogin'])->name('doLogin');
 
