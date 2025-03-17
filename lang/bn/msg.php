@@ -1,9 +1,9 @@
 <?php
 
 return[
-    'title' => 'রংপুর নিউজ',
+    'title' => 'রংপুর পত্রিকা',
     'rangpur'=> 'রংপুর',
-    'news'=> 'নিউজ',
+    'news'=> 'পত্রিকা',
     'homeMenu' => 'হোম',
 
     'category' => [

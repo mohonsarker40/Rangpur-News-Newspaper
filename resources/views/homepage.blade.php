@@ -15,19 +15,19 @@
                                  style="object-fit: cover;">
                             <div class="overlay">
                                 <div class="mb-2">
-                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                       href="{{route('wb.cat', @$slide->category->id)}}">{{@$slide->category->category_name}}</a>
-                                    <a class="text-white" href="">{{date('M d, Y', strtotime($slide->date))}}</a>
+{{--                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"--}}
+{{--                                       href="{{route('wb.cat', @$slide->category->id)}}">{{@$slide->category->category_name}}</a>--}}
+{{--                                    <a class="text-white" href="">{{date('M d, Y', strtotime($slide->date))}}</a>--}}
                                 </div>
-                                <a class="h2 m-0 text-white text-uppercase font-weight-bold"
-                                   href="{{route('wb.cat', @$slide->category->id)}}">{{$slide->title}}</a>
+{{--                                <a class="h2 m-0 text-white text-uppercase font-weight-bold"--}}
+{{--                                   href="{{route('wb.cat', @$slide->category->id)}}">{{$slide->title}}</a>--}}
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
 
-            {{--            news section--}}
+{{--                        news section--}}
             <div class="col-lg-5 px-0">
                 <div class="row mx-0">
                     @foreach($news as $new)
@@ -37,14 +37,14 @@
                                      style="object-fit: cover;">
                                 <div class="overlay">
                                     <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                           href="{{route('wb.cat', @$new->category->id)}}">{{@$new->category->category_name}}</a>
+{{--                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"--}}
+{{--                                           href="{{route('wb.cat', @$new->category->id)}}">{{@$new->category->category_name}}</a>--}}
                                         <a class="text-white" href="">
                                             <small>{{date('M d, Y', strtotime($new->date))}}</small>
                                         </a>
                                     </div>
-                                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
-                                       href="{{route('wb.cat', @$new->category->id)}}">{{$new->title}}</a>
+{{--                                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"--}}
+{{--                                       href="{{route('wb.cat', @$new->category->id)}}">{{$new->title}}</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -71,8 +71,8 @@
 
                             @foreach($breakingNews as $breakingNew)
                                 <div class="text-truncate">
-                                    <a class="text-white text-uppercase font-weight-semi-bold"
-                                       href="{{route('wb.cat', @$breakingNew->category->id)}}">{{$breakingNew->title}}</a>
+{{--                                    <a class="text-white text-uppercase font-weight-semi-bold"--}}
+{{--                                       href="{{route('wb.cat', @$breakingNew->category->id)}}">{{$breakingNew->title}}</a>--}}
                                 </div>
                             @endforeach
 
@@ -93,21 +93,21 @@
             </div>
             <div class="owl-carousel news-carousel carousel-item-4 position-relative">
 
-                {{--          single featured News --}}
+{{--                          single featured News--}}
                 @foreach($featuredSlides as $featuredSlide)
                     <div class="position-relative overflow-hidden" style="height: 300px;">
                         <img class="img-fluid h-100" src="{{env('STORAGE_PATH')}}/{{$featuredSlide->thumbnail}}"
                              style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                   href="{{route('wb.cat', @$featuredSlide->category->id)}}">{{$featuredSlide->category->category_name}}</a>
+{{--                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"--}}
+{{--                                   href="{{route('wb.cat', @$featuredSlide->category->id)}}">{{$featuredSlide->category->category_name}}</a>--}}
                                 <a class="text-white" href="">
                                     <small>{{date('M d, Y', strtotime($featuredSlide->date))}}</small>
                                 </a>
                             </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
-                               href="{{route('wb.cat', @$featuredSlide->category->id)}}">{{$featuredSlide->title}}</a>
+{{--                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"--}}
+{{--                               href="{{route('wb.cat', @$featuredSlide->category->id)}}">{{$featuredSlide->title}}</a>--}}
                         </div>
                     </div>
                 @endforeach
@@ -132,7 +132,7 @@
                         </div>
 
 
-                        {{--                    single latest news--}}
+{{--single latest news--}}
                         @foreach($latestNews as $latestNew)
                             <div class="col-lg-6">
                                 <div class="position-relative mb-3">
@@ -140,8 +140,8 @@
                                          style="object-fit: cover;">
                                     <div class="bg-white border border-top-0 p-4">
                                         <div class="mb-2">
-                                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                               href="{{route('wb.cat', @$latestNew->category->id)}}">{{$latestNew->category->category_name}}</a>
+{{--                                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"--}}
+{{--                                               href="{{route('wb.cat', @$latestNew->category->id)}}">{{$latestNew->category->category_name}}</a>--}}
 
                                             <a class="text-body" href="">
                                                 <small>{{date ('M, d, Y', strtotime($latestNew->date))}}</small>
@@ -196,12 +196,6 @@
                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
                                 <span class="font-weight-medium">12,345 Connects</span>
                             </a>
-                            <a href="#" id="share-instagram" class="d-block w-100 text-white text-decoration-none mb-3"
-                               style="background: #C8359D;">
-                                <i class="fab fa-instagram text-center py-4 mr-3"
-                                   style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">12,345 Followers</span>
-                            </a>
                             <a href="#" id="share-youtube" class="d-block w-100 text-white text-decoration-none mb-3"
                                style="background: #DC472E;">
                                 <i class="fab fa-youtube text-center py-4 mr-3"
@@ -223,58 +217,10 @@
                     </div>
                     <!-- Ads End -->
 
-                    <!-- Popular News Start -->
+                    <!-- Trending News Start -->
                     <div class="mb-3">
                         <div class="section-title mb-0">
                             <h4 class="m-0 text-uppercase font-weight-bold">{{(__('msg.asideTrendingNewsT'))}}</h4>
-                        </div>
-                        <div class="bg-white border border-top-0 p-3">
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <img class="img-fluid" src="{{asset('frontend/img/news-110x110-1.jpg')}}" alt="">
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="">Business</a>
-                                        <a class="text-body" href="">
-                                            <small>Jan 01, 2045</small>
-                                        </a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white border border-top-0 p-3">
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <img class="img-fluid" src="{{asset('frontend/img/news-110x110-1.jpg')}}" alt="">
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="">Business</a>
-                                        <a class="text-body" href="">
-                                            <small>Jan 01, 2045</small>
-                                        </a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white border border-top-0 p-3">
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <img class="img-fluid" src="{{asset('frontend/img/news-110x110-1.jpg')}}" alt="">
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="">Business</a>
-                                        <a class="text-body" href="">
-                                            <small>Jan 01, 2045</small>
-                                        </a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
                         </div>
                         <div class="bg-white border border-top-0 p-3">
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
@@ -318,7 +264,6 @@
                             <h4 class="m-0 text-uppercase font-weight-bold">{{(__('msg.asideNewsletterT'))}}</h4>
                         </div>
                         <div class="bg-white text-center border border-top-0 p-3">
-                            <p>Subscribe for monthly publish</p>
                             <div class="input-group mb-2" style="width: 100%;">
                                 <input type="text" class="form-control form-control-lg" placeholder="Your Email">
                                 <div class="input-group-append">
@@ -338,13 +283,6 @@
                                 <a href="" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
                                 <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
                                 <a href="" class="btn btn-sm btn-outline-secondary m-1">Corporate</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Health</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Education</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Science</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Foods</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Travel</a>
                             </div>
                         </div>
                     </div>
