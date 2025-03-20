@@ -11,8 +11,8 @@
             {{--      language  dropdown--}}
             <div class="col-md-4 btn bg-warning">
                 <select class="form-control changeLang">
-                    <option value="bn" {{ session()->get('locale') == 'bn' ? 'selected' : '' }}>Bangla</option>
                     <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
+                    <option value="bn" {{ session()->get('locale') == 'bn' ? 'selected' : '' }}>Bangla</option>
 
                 </select>
             </div>

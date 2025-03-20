@@ -12,7 +12,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $data['slides'] = News::with('category:category_name,id')->take(3)->skip(0)->orderBy('id', 'DESC')->get();
+        $data['slides'] = News::with('category:category_name,id')->take(4)->orderBy('id', 'DESC')->get();
         $data['news'] = News::take(4)->skip(0)->orderBy('id', 'DESC')->get();
         $data['categories'] = Category::all();
         $data['breakingNews'] = News::take(3)->skip(0)->orderBy('id', 'DESC')->get();

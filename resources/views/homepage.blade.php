@@ -11,16 +11,24 @@
                 <div class="owl-carousel main-carousel position-relative">
                     @foreach($slides as $slide)
                         <div class="position-relative overflow-hidden" style="height: 500px;">
-                            <img class="img-fluid h-100" src="{{env('STORAGE_PATH')}}/{{$slide->thumbnail}}"
+                            <img class="img-fluid h-100" src="{{ env('STORAGE_PATH') }}/{{ $slide->thumbnail }}"
                                  style="object-fit: cover;">
                             <div class="overlay">
                                 <div class="mb-2">
-{{--                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"--}}
-{{--                                       href="{{route('wb.cat', @$slide->category->id)}}">{{@$slide->category->category_name}}</a>--}}
-{{--                                    <a class="text-white" href="">{{date('M d, Y', strtotime($slide->date))}}</a>--}}
+                                    @isset( $slide->category->category_name )
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                           href="{{ route('wb.cat', @$slide->category->id) }}">
+                                            {{ @$slide->category->category_name }}
+                                        </a>
+                                        <a class="text-white" href="">{{date('M d, Y', strtotime( $slide->date) )}}</a>
+                                        @endisset
                                 </div>
-{{--                                <a class="h2 m-0 text-white text-uppercase font-weight-bold"--}}
-{{--                                   href="{{route('wb.cat', @$slide->category->id)}}">{{$slide->title}}</a>--}}
+                                @isset( $slide->category->id )
+                                    <a class="h2 m-0 text-white text-uppercase font-weight-bold"
+                                    href="{{ route('wb.cat', @$slide->category->id) }}">
+                                        {{ $slide->title }}
+                                    </a>
+                                @endisset
                             </div>
                         </div>
                     @endforeach
@@ -30,21 +38,26 @@
 {{--                        news section--}}
             <div class="col-lg-5 px-0">
                 <div class="row mx-0">
-                    @foreach($news as $new)
+                    @foreach( $news as $new )
                         <div class="col-md-6 px-0">
                             <div class="position-relative overflow-hidden" style="height: 250px;">
-                                <img class="img-fluid w-100 h-100" src="{{env('STORAGE_PATH')}}/{{$new->thumbnail}}"
+                                <img class="img-fluid w-100 h-100" src="{{ env('STORAGE_PATH')}}/{{$new->thumbnail }}"
                                      style="object-fit: cover;">
                                 <div class="overlay">
                                     <div class="mb-2">
-{{--                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"--}}
-{{--                                           href="{{route('wb.cat', @$new->category->id)}}">{{@$new->category->category_name}}</a>--}}
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                           href="{{ route('wb.cat', optional($new->category)->id ?? '#') }}">
+                                            {{ optional($new->category)->category_name ?? 'No Category' }}
+                                        </a>
                                         <a class="text-white" href="">
-                                            <small>{{date('M d, Y', strtotime($new->date))}}</small>
+                                            <small>{{ date('M d, Y', strtotime($new->date ))}}</small>
                                         </a>
                                     </div>
-{{--                                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"--}}
-{{--                                       href="{{route('wb.cat', @$new->category->id)}}">{{$new->title}}</a>--}}
+                                    @isset( $new->category->id )
+                                        <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
+                                           href="{{route('wb.cat', @$new->category->id)}}">
+                                            {{ $new->title }}</a>
+                                    @endisset
                                 </div>
                             </div>
                         </div>
@@ -64,15 +77,19 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between">
                         <div class="bg-primary text-dark text-center font-weight-medium py-2" style="width: 170px;">
-                            {{(__('msg.breakingNewsT'))}}
+                            {{ (__('msg.breakingNewsT')) }}
                         </div>
                         <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3"
                              style="width: calc(100% - 170px); padding-right: 90px;">
 
                             @foreach($breakingNews as $breakingNew)
                                 <div class="text-truncate">
-{{--                                    <a class="text-white text-uppercase font-weight-semi-bold"--}}
-{{--                                       href="{{route('wb.cat', @$breakingNew->category->id)}}">{{$breakingNew->title}}</a>--}}
+                                    @isset( $breakingNew->category->id )
+                                        <a class="text-white text-uppercase font-weight-semi-bold"
+                                           href="{{ route('wb.cat', @$breakingNew->category->id) }}">
+                                            {{ $breakingNew->title }}
+                                        </a>
+                                        @endisset
                                 </div>
                             @endforeach
 
@@ -89,19 +106,22 @@
     <div class="container-fluid pt-5 mb-3">
         <div class="container">
             <div class="section-title">
-                <h4 class="m-0 text-uppercase font-weight-bold">{{(__('msg.featuredNewsT'))}}</h4>
+                <h4 class="m-0 text-uppercase font-weight-bold">{{ (__('msg.featuredNewsT')) }}</h4>
             </div>
             <div class="owl-carousel news-carousel carousel-item-4 position-relative">
 
-{{--                          single featured News--}}
+                {{--single featured News--}}
                 @foreach($featuredSlides as $featuredSlide)
                     <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img class="img-fluid h-100" src="{{env('STORAGE_PATH')}}/{{$featuredSlide->thumbnail}}"
+                        <img class="img-fluid h-100" src="{{ env('STORAGE_PATH')}}/{{$featuredSlide->thumbnail }}"
                              style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-2">
-{{--                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"--}}
-{{--                                   href="{{route('wb.cat', @$featuredSlide->category->id)}}">{{$featuredSlide->category->category_name}}</a>--}}
+                                @isset($featuredSlide->category->id)
+                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                       href="{{ route('wb.cat', @$featuredSlide->category->id) }}">
+                                        {{ $featuredSlide->category->category_name }}</a>
+                                @endisset
                                 <a class="text-white" href="">
                                     <small>{{date('M d, Y', strtotime($featuredSlide->date))}}</small>
                                 </a>
@@ -132,7 +152,7 @@
                         </div>
 
 
-{{--single latest news--}}
+                        {{--single latest news--}}
                         @foreach($latestNews as $latestNew)
                             <div class="col-lg-6">
                                 <div class="position-relative mb-3">
@@ -140,15 +160,18 @@
                                          style="object-fit: cover;">
                                     <div class="bg-white border border-top-0 p-4">
                                         <div class="mb-2">
-{{--                                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"--}}
-{{--                                               href="{{route('wb.cat', @$latestNew->category->id)}}">{{$latestNew->category->category_name}}</a>--}}
-
+                                            @isset($latestNew->category->id)
+                                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                                   href="{{ route('wb.cat', @$latestNew->category->id) }}">
+                                                    {{ $latestNew->category->category_name }}</a>
+                                                @endisset
                                             <a class="text-body" href="">
                                                 <small>{{date ('M, d, Y', strtotime($latestNew->date))}}</small>
                                             </a>
                                         </div>
-                                        <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
-                                           href="{{route('wb.news', @$latestNew->id)}}">{{substr($latestNew->title, 0, 10). '...'}}</a>
+                                        <a class="h5 d-block mb-3 text-secondary text-uppercase font-weight-bold"
+                                           href="{{route('wb.news', @$latestNew->id)}}">{{substr($latestNew->title,
+                                           0, 20). '...'}}</a>
 
                                         <p class="m-0">{{ Str::limit(strip_tags($new->details), 30, '...') }}</p>
 

@@ -46,10 +46,6 @@
             sharePost('linkedin');
         });
 
-        document.getElementById('share-instagram').addEventListener('click', function() {
-            sharePost('instagram');
-        });
-
         document.getElementById('share-youtube').addEventListener('click', function() {
             sharePost('youtube');
         });
@@ -68,9 +64,6 @@
             case 'linkedin':
                 shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${postUrl}&title=${postTitle}`;
                 break;
-            case 'instagram':
-                alert("Instagram does not support direct sharing via URL.");
-                return;
             case 'youtube':
                 shareUrl = `https://www.youtube.com/share?url=${postUrl}`;
                 return;
