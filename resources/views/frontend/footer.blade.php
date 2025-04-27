@@ -8,9 +8,9 @@
             <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">{{ __('msg.follow') }}</h6>
             <div class="d-flex justify-content-start">
                 <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://github.com/mohonsarker40" target="_blank"><i class="fab fa-github"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.linkedin.com/in/mohon-sarker4/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.facebook.com/mhn.sarker" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square" href="https://www.youtube.com/@mohonsarker5779" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.linkedin.com/in/mohonsarker40/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.facebook.com/mohonsarker4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square" href="https://www.youtube.com/@mohonsarker40" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
 
@@ -72,6 +72,6 @@
 <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
     <p class="m-0 text-center">&copy; <a href="#">Rangpur News</a>. All Rights Reserved.
 
-        Design by <a href="https://www.facebook.com/mhn.sarker">Mohon Sarker</a></p>
+        Design by <a href="https://www.facebook.com/mohonsarker4/">Mohon Sarker</a></p>
 </div>
 <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
