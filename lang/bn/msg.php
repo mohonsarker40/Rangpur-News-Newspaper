@@ -16,7 +16,8 @@ return[
         'politics' => 'রাজনীতি',
         'international' => 'আন্তর্জাতিক',
         'disaster' => 'দুর্যোগ',
-        'corruption' => 'দুর্নীতি'
+        'corruption' => 'দুর্নীতি',
+        'tech' => 'প্রযুক্তি',
     ],
 
     'breakingNewsT' =>'এই মাত্র পাওয়া..',

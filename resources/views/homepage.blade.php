@@ -117,7 +117,7 @@
                              style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-2">
-                                @isset($featuredSlide->category->id)
+                                @isset($featuredSlide->category->category_name)
                                     <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
                                        href="{{ route('wb.cat', @$featuredSlide->category->id) }}">
                                         {{ $featuredSlide->category->category_name }}</a>
@@ -126,8 +126,8 @@
                                     <small>{{date('M d, Y', strtotime($featuredSlide->date))}}</small>
                                 </a>
                             </div>
-{{--                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"--}}
-{{--                               href="{{route('wb.cat', @$featuredSlide->category->id)}}">{{$featuredSlide->title}}</a>--}}
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
+                               href="{{route('wb.cat', @$featuredSlide->id)}}">{{substr($featuredSlide->title,0, 30).'...'}}</a>
                         </div>
                     </div>
                 @endforeach
@@ -160,7 +160,7 @@
                                          style="object-fit: cover;">
                                     <div class="bg-white border border-top-0 p-4">
                                         <div class="mb-2">
-                                            @isset($latestNew->category->id)
+                                            @isset($latestNew->category->category_name)
                                                 <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
                                                    href="{{ route('wb.cat', @$latestNew->category->id) }}">
                                                     {{ $latestNew->category->category_name }}</a>
@@ -173,7 +173,7 @@
                                            href="{{route('wb.news', @$latestNew->id)}}">{{substr($latestNew->title,
                                            0, 20). '...'}}</a>
 
-                                        <p class="m-0">{{ Str::limit(strip_tags($new->details), 30, '...') }}</p>
+                                        <p class="m-0">{{ Str::limit(strip_tags($latestNew->details), 30, '...') }}</p>
 
                                     </div>
                                     <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
