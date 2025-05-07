@@ -11,8 +11,8 @@
                 <div class="owl-carousel main-carousel position-relative">
                     @foreach($slides as $slide)
                         <div class="position-relative overflow-hidden" style="height: 500px;">
-                            <img class="img-fluid h-100" src="{{ env('STORAGE_PATH') }}/{{ $slide->thumbnail }}"
-                                 style="object-fit: cover;">
+                                <img class="img-fluid h-100" src="{{ env('STORAGE_PATH') }}/{{ $slide->thumbnail }}"
+                                    style="object-fit: cover;">
                             <div class="overlay">
                                 <div class="mb-2">
                                     @isset( $slide->category->category_name )
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-{{--                        news section--}}
+{{--    top right news section--}}
             <div class="col-lg-5 px-0">
                 <div class="row mx-0">
                     @foreach( $news as $new )
@@ -56,7 +56,7 @@
                                     @isset( $new->category->id )
                                         <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
                                            href="{{route('wb.cat', @$new->category->id)}}">
-                                            {{ $new->title }}</a>
+                                            {{substr($new->title,0, 30). '...'}}</a>
                                     @endisset
                                 </div>
                             </div>
@@ -170,9 +170,9 @@
                                             </a>
                                         </div>
                                         <a class="h5 d-block mb-3 text-secondary text-uppercase font-weight-bold"
-                                           href="{{route('wb.news', @$latestNew->id)}}">{{substr($latestNew->title,
-                                           0, 20). '...'}}</a>
-
+                                           href="{{route('wb.news', @$latestNew->id)}}">
+                                            {{substr($latestNew->title,0, 20). '...'}}
+                                        </a>
                                         <p class="m-0">{{ Str::limit(strip_tags($latestNew->details), 30, '...') }}</p>
 
                                     </div>
@@ -184,7 +184,7 @@
 
                                         </div>
                                         <div class="d-flex align-items-center">
-                                            <small>{{$latestNew->view_count}}</small>
+                                            <small class="ml-3"><i class="far fa-eye mr-2"></i>{{$latestNew->view_count}}</small>
                                             <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
                                         </div>
                                     </div>
