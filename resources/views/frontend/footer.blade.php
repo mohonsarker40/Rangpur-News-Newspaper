@@ -72,6 +72,6 @@
 <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
     <p class="m-0 text-center">&copy; <a href="#">Rangpur News</a>. All Rights Reserved.
 
-        Design by <a href="https://www.facebook.com/mohonsarker4/">Mohon Sarker</a></p>
+        Design by <a href="https://mohonsarker40.github.io/">Mohon Sarker</a></p>
 </div>
 <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
